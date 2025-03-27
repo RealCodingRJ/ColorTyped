@@ -12,7 +12,6 @@ bool hasCorrectRoute = true;
 
 struct {
 
-
 	bool hasColor;
 
 } HasColors;
