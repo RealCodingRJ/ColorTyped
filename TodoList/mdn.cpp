@@ -9,9 +9,18 @@ using namespace std;
 
 bool hasCorrectRoute = true;
 
+
+struct {
+
+
+	bool hasColor;
+
+} HasColors;
+
+
 int main() {
 
-	std:ofstream f("main.txt");
+	ofstream f("main.txt");
 
 	if (f.is_open()) {
 
@@ -23,8 +32,7 @@ int main() {
 
 		std::string s;
 
-
-		srand(time(0));
+		HasColors.hasColor = true;
 
 		tuple<int, int, int> colors1;
 		tuple<int, int, int> colors2;
@@ -33,7 +41,7 @@ int main() {
 		int colorG = rand() % 255;
 		int colorB = rand() % 255;
 
-		while (hasCorrectRoute) {
+		while (HasColors.hasColor) {
 
 			string colorType;
 
@@ -81,7 +89,7 @@ int main() {
 
 				}
 
-				hasCorrectRoute = false;
+				HasColors.hasColor = false;
 
 
 
@@ -102,7 +110,7 @@ int main() {
 			}
 
 
-			hasCorrectRoute = false;
+			HasColors.hasColor = false;
 
 		}
 

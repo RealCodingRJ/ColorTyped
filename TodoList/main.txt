@@ -1,5 +1,4 @@
-
-R:  255
-G:  255
-B:  255
-Hex Color Code: #4ffffff
+R:  41
+G:  107
+B:  214
+Hex Color Code: #4296bd6
