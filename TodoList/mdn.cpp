@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <time.h>
+#include <iomanip>
 #include <tuple>
 
 using namespace std;
@@ -30,6 +31,7 @@ int main() {
 		int colorR = rand() % 255;
 		int colorG = rand() % 255;
 		int colorB = rand() % 255;
+
 
 		string colorType;
 
@@ -68,7 +70,7 @@ int main() {
 				f << "B: " << " " << bColor << endl;
 
 				colors2 = make_tuple(rColor, gColor, bColor);
-
+				
 
 
 			}
@@ -82,7 +84,8 @@ int main() {
 			f << "B: " << " " << colorB << endl;
 
 
-			f << "Hex Color Code: #" << std::hex << get<0>(colors1) << std::hex
+			f << "Hex Color Code: #" << s
+				<< setw(4) << std::hex << get<0>(colors1) << std::hex
 				<< get<1>(colors1) << std::hex << get<2>(colors1) << std::endl;
 		}
 
