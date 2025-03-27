@@ -7,6 +7,7 @@
 
 using namespace std;
 
+bool hasCorrectRoute = true;
 
 int main() {
 
@@ -32,65 +33,81 @@ int main() {
 		int colorG = rand() % 255;
 		int colorB = rand() % 255;
 
+		while (hasCorrectRoute) {
 
-		string colorType;
+			string colorType;
 
-		cout << endl;
+			cout << endl;
 
-		colors1 = make_tuple(colorR, colorG, colorB);
+			colors1 = make_tuple(colorR, colorG, colorB);
 
-		cout << "-> Custom Type | Hex Decimal: " << endl;
+			cout << "-> Custom Type | Hex Decimal: " << endl;
 
-		cin >> colorType;
+			cin >> colorType;
 
-		auto rColor = 0;
-		auto gColor = 0;
-		auto bColor = 0;
-		char customColor[1025];
 
-		if (colorType == "dec") {
+			if (colorType == "dec") {
 
-			f << "\n";
+				f << "\n";
 
-			cout << "-> Custom Type Y | N: " << endl;
-			cin >> customColor;
 
-			if (customColor == "y") {
+				auto rColor = 0;
+				auto gColor = 0;
+				auto bColor = 0;
+				string customColor;
 
-				cout << "Enter R: " << endl;
-				cin >> rColor;
+				cout << "-> Custom Type Y | N: " << endl;
+				cin >> customColor;
 
-				cout << "Enter G: " << endl;
-				cin >> gColor;
-				cout << "Enter B: " << endl;
-				cin >> bColor;
+				if (customColor == "y") {
 
-				f << "R: " << " " << rColor << endl;
-				f << "G: " << " " << gColor << endl;
-				f << "B: " << " " << bColor << endl;
+					cout << "Enter R: " << endl;
+					cin >> rColor;
 
-				colors2 = make_tuple(rColor, gColor, bColor);
+					cout << "Enter G: " << endl;
+					cin >> gColor;
+					cout << "Enter B: " << endl;
+					cin >> bColor;
+
+					f << "R: " << " " << rColor << endl;
+					f << "G: " << " " << gColor << endl;
+					f << "B: " << " " << bColor << endl;
+
+					colors2 = make_tuple(rColor, gColor, bColor);
 				
+					f << "Hex Color Code: #" << s
+						<< (4) << std::hex << get<0>(colors2) << std::hex
+						<< get<1>(colors2) << std::hex << get<2>(colors2) << std::endl;
+
+				}
+
+				hasCorrectRoute = false;
+
 
 
 			}
 
+			else if (colorType == "hex")
+			{
+				f << "R: " << " " << colorR << endl;
+				f << "G: " << " " << colorG << endl;
+				f << "B: " << " " << colorB << endl;
+
+
+				f << "Hex Color Code: #" << s
+					<< (4) << std::hex << get<0>(colors1) << std::hex
+					<< get<1>(colors1) << std::hex << get<2>(colors1) << std::endl;
+
+
+			}
+
+
+			hasCorrectRoute = false;
+
 		}
 
-		else if (colorType == "hex")
-		{
-			f << "R: " << " " << colorR << endl;
-			f << "G: " << " " << colorG << endl;
-			f << "B: " << " " << colorB << endl;
 
-
-			f << "Hex Color Code: #" << s
-				<< setw(4) << std::hex << get<0>(colors1) << std::hex
-				<< get<1>(colors1) << std::hex << get<2>(colors1) << std::endl;
-		}
-
-
-		f.close();
+		f.close();	
 	}
 
 	else {
